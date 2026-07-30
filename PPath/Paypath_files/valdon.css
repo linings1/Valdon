@@ -1,0 +1,1013 @@
+:root {
+    --valdon-bg: #141010;
+    --valdon-bg-card: #1c1612;
+    --valdon-gold: #c4a35a;
+    --valdon-gold-light: #dbc07a;
+    --valdon-text: #e8dfd0;
+    --valdon-text-muted: #a89880;
+    --valdon-border: rgba(196, 163, 90, 0.35);
+    --font-serif: 'Cormorant Garamond', 'Times New Roman', Times, serif;
+    --font-sans: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--valdon-bg);
+    color: var(--valdon-text);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6,
+.valdon-brand-name,
+.valdon-section-title {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-wrapper {
+    overflow-x: hidden;
+}
+
+#first-nav-hero-about,
+#main-sections {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.valdon-hero-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.valdon-container {
+    width: min(1140px, 92%);
+    margin: 0 auto;
+}
+
+.valdon-gold-line {
+    border: none;
+    border-top: 1px solid var(--valdon-border);
+    margin: 0;
+}
+
+/* Header */
+.valdon-header {
+    width: 100%;
+    z-index: 100;
+    border: none;
+}
+
+.valdon-hero .valdon-header {
+    position: relative;
+    background: rgba(10, 8, 6, 0.97);
+    border-bottom: 1px solid var(--valdon-border);
+    padding: 0.7rem 0;
+}
+
+.valdon-header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.valdon-brand-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.valdon-logo--header {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+}
+
+.valdon-brand-name--header {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--valdon-gold-light);
+    letter-spacing: 0.02em;
+}
+
+.valdon-hero-logo-img {
+    width: min(280px, 92%);
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.valdon-logo {
+    color: var(--valdon-gold);
+    flex-shrink: 0;
+    display: block;
+    overflow: visible;
+}
+
+.valdon-logo--sm {
+    width: 40px;
+    height: 40px;
+}
+
+.valdon-logo--md {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 0.75rem;
+}
+
+.valdon-logo--lg {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.25rem;
+}
+
+.valdon-phone-icon {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    color: var(--valdon-gold-light);
+}
+
+.valdon-btn-call .valdon-phone-icon {
+    width: 0.95rem;
+    height: 0.95rem;
+}
+
+.valdon-phone-icon--sticky {
+    width: 1.45rem;
+    height: 1.45rem;
+    color: var(--valdon-gold-light);
+}
+
+.valdon-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.valdon-brand-text .valdon-brand-name {
+    font-size: 1.2rem;
+}
+
+.valdon-brand-text .valdon-brand-sub {
+    margin-top: 0.15rem;
+}
+
+.mobile-only {
+    display: none;
+}
+
+.desktop-only {
+    display: inline-flex;
+}
+
+.valdon-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+.valdon-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(1rem, 2.2vw, 1.85rem);
+    flex: 1;
+    margin-left: 1rem;
+}
+
+.valdon-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.valdon-logo-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+}
+
+.valdon-brand-name {
+    font-size: 1.35rem;
+    color: var(--valdon-gold-light);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.valdon-brand-sub {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--valdon-text-muted);
+    margin: 0;
+}
+
+.valdon-nav a {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    color: var(--valdon-gold-light);
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+.valdon-nav a:hover,
+.valdon-nav a.active {
+    color: var(--valdon-gold);
+}
+
+.valdon-nav a.active {
+    position: relative;
+}
+
+.valdon-nav a.active::before,
+.valdon-nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--valdon-gold);
+}
+
+.valdon-nav a.active::before {
+    top: -0.35rem;
+}
+
+.valdon-nav a.active::after {
+    bottom: -0.35rem;
+}
+
+.valdon-btn-call {
+    font-family: var(--font-sans);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--valdon-gold);
+    border-radius: 4px;
+    color: var(--valdon-gold-light);
+    font-size: 0.85rem;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    background: rgba(8, 6, 5, 0.85);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.valdon-btn-call:hover {
+    background: var(--valdon-gold);
+    color: var(--valdon-bg);
+}
+
+.valdon-menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--valdon-border);
+    color: var(--valdon-gold);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.valdon-mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 8, 6, 0.97);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.valdon-mobile-nav.open {
+    display: flex;
+}
+
+.valdon-mobile-nav a {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.valdon-mobile-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    color: var(--valdon-gold);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.valdon-btn-call--mobile-icon {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+}
+
+/* Hero — one unified section */
+.valdon-hero {
+    position: relative;
+    width: 100%;
+    background: #080605;
+    border-bottom: 1px solid var(--valdon-border);
+    overflow: hidden;
+}
+
+.valdon-hero-full-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    min-height: clamp(160px, 28vw, 320px);
+    background: #080605;
+    vertical-align: top;
+}
+
+/* Sections common */
+.valdon-section,
+.valdon-gold-line,
+.valdon-hotline,
+.valdon-hero,
+.valdon-header {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.valdon-section {
+    padding: 4rem 0;
+}
+
+.valdon-section-title {
+    text-align: center;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--valdon-gold-light);
+    margin: 0 0 2.5rem;
+    text-transform: uppercase;
+}
+
+
+/* What to do cards */
+.valdon-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.valdon-step-card {
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: border-color 0.2s;
+}
+
+.valdon-step-card:hover {
+    border-color: var(--valdon-gold);
+}
+
+.valdon-step-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--valdon-border);
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+
+.valdon-step-card h3 {
+    font-size: 1.1rem;
+    color: var(--valdon-gold-light);
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+}
+
+.valdon-step-card p {
+    font-size: 0.88rem;
+    color: var(--valdon-text-muted);
+    margin: 0;
+}
+
+/* Reviews */
+.valdon-reviews {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.valdon-review-card {
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.valdon-review-quote {
+    font-size: 2.5rem;
+    color: var(--valdon-gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.valdon-stars {
+    color: var(--valdon-gold);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+}
+
+.valdon-review-card p {
+    font-size: 0.9rem;
+    color: var(--valdon-text-muted);
+    font-style: italic;
+    margin: 0;
+}
+
+/* Services */
+.valdon-services {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+
+.valdon-service-card {
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.valdon-service-icon {
+    width: 64px;
+    height: 64px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--valdon-border);
+    border-radius: 50%;
+    font-size: 1.4rem;
+}
+
+.valdon-service-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.valdon-service-body h3 {
+    font-size: 1.05rem;
+    color: var(--valdon-gold-light);
+    margin: 0 0 0.6rem;
+    text-transform: uppercase;
+}
+
+.valdon-service-body p {
+    font-size: 0.82rem;
+    color: var(--valdon-text-muted);
+    margin: 0 0 1rem;
+    flex: 1;
+}
+
+.valdon-service-link {
+    font-size: 0.78rem;
+    color: var(--valdon-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    margin: 0 auto;
+}
+
+.valdon-service-link:hover {
+    color: var(--valdon-gold-light);
+}
+
+.valdon-team-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--valdon-border);
+    border-radius: 50%;
+    font-size: 1.75rem;
+}
+
+/* Team */
+.valdon-team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.valdon-team-grid--text {
+    grid-template-columns: 1fr;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.valdon-team-grid--text .valdon-team-text {
+    text-align: center;
+}
+
+.valdon-team-grid--text .valdon-title-ornament {
+    margin: 0 auto 1.25rem;
+}
+
+.valdon-title-ornament {
+    width: 80px;
+    height: 1px;
+    background: var(--valdon-gold);
+    margin: 0 0 1.25rem;
+}
+
+.valdon-team-text h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--valdon-gold-light);
+    margin: 0 0 1.25rem;
+    text-transform: uppercase;
+}
+
+.valdon-team-text p {
+    font-size: 0.95rem;
+    color: var(--valdon-text-muted);
+    margin: 0;
+}
+
+.valdon-team-text p + p {
+    margin-top: 1rem;
+}
+
+/* Hotline (mobile prominent) */
+.valdon-hotline {
+    display: none;
+    padding: 2rem 0;
+}
+
+.valdon-hotline-box {
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+    padding: 2rem;
+    text-align: center;
+    background: var(--valdon-bg-card);
+}
+
+.valdon-emoji {
+    display: inline-block;
+    font-style: normal;
+    line-height: 1;
+    font-size: 1.25rem;
+}
+
+.valdon-emoji--lg {
+    font-size: 2rem;
+}
+
+.valdon-step-icon .valdon-emoji,
+.valdon-service-icon .valdon-emoji,
+.valdon-team-icon .valdon-emoji {
+    font-size: 1.75rem;
+}
+
+.valdon-phone-icon--lg {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 auto 0.75rem;
+    color: var(--valdon-gold-light);
+}
+
+.valdon-phone-icon--lg svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.valdon-contact-list .valdon-emoji {
+    width: 22px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.valdon-hotline-box .valdon-emoji {
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.valdon-hotline-box i {
+    font-size: 2rem;
+    color: var(--valdon-gold);
+    margin-bottom: 0.75rem;
+}
+
+.valdon-hotline-box h3 {
+    font-size: 1.2rem;
+    color: var(--valdon-gold-light);
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+}
+
+.valdon-hotline-box a {
+    font-size: 1.4rem;
+    color: var(--valdon-gold);
+    font-weight: 600;
+}
+
+.valdon-hotline-box span {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.82rem;
+    color: var(--valdon-text-muted);
+}
+
+/* Footer */
+.valdon-footer {
+    padding: 3rem 0 2rem;
+    border-top: 1px solid var(--valdon-border);
+    width: 100%;
+    clear: both;
+}
+
+.valdon-footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.valdon-footer h4 {
+    font-size: 1rem;
+    color: var(--valdon-gold-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 1.25rem;
+}
+
+.valdon-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.valdon-contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.88rem;
+    color: var(--valdon-text-muted);
+}
+
+.valdon-contact-list i {
+    color: var(--valdon-gold);
+    width: 18px;
+    text-align: center;
+}
+
+.valdon-contact-list a:hover {
+    color: var(--valdon-gold);
+}
+
+.valdon-map {
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+    overflow: hidden;
+    height: 180px;
+    background: #1e1814;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+}
+
+.valdon-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(30%) brightness(0.7);
+}
+
+.valdon-address {
+    font-size: 0.88rem;
+    color: var(--valdon-text-muted);
+    margin: 0;
+}
+
+.valdon-footer-brand {
+    text-align: center;
+}
+
+.valdon-footer-brand .valdon-logo-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 0.75rem;
+    display: block;
+}
+
+.valdon-footer-logo-img {
+    width: min(180px, 80%);
+    height: auto;
+    margin: 0 auto 0.75rem;
+    display: block;
+}
+
+.valdon-footer-brand .valdon-brand-name {
+    font-size: 1.6rem;
+}
+
+.valdon-footer-motto {
+    font-size: 0.82rem;
+    color: var(--valdon-gold);
+    margin-top: 0.5rem;
+}
+
+.valdon-footer-cta {
+    display: none;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.valdon-btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: var(--valdon-gold);
+    color: var(--valdon-bg);
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+}
+
+.valdon-copyright {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--valdon-border);
+    font-size: 0.78rem;
+    color: var(--valdon-text-muted);
+}
+
+/* Reviews slider */
+.valdon-reviews-slider {
+    width: 100%;
+    margin: 0;
+}
+
+.valdon-reviews-slider .slick-slide {
+    padding: 0 0.65rem;
+    height: auto;
+}
+
+.valdon-reviews-slider .slick-slide > div {
+    height: 100%;
+}
+
+.valdon-reviews-slider .valdon-review-card {
+    height: 100%;
+}
+
+.valdon-reviews-slider .slick-list {
+    overflow: hidden;
+    margin: 0 -0.65rem;
+}
+
+.valdon-reviews-slider .slick-dots {
+    position: relative;
+    bottom: 0;
+    margin-top: 1.5rem;
+}
+
+.valdon-reviews-slider .slick-dots li button:before {
+    color: var(--valdon-gold);
+    opacity: 0.45;
+}
+
+.valdon-reviews-slider .slick-dots li.slick-active button:before {
+    opacity: 1;
+}
+
+/* Sticky call button */
+.valdon-sticky-call {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 999;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--valdon-bg-card);
+    border: 2px solid var(--valdon-gold);
+    color: var(--valdon-gold-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+    transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.valdon-sticky-call:hover {
+    transform: scale(1.06);
+    background: rgba(196, 163, 90, 0.12);
+    border-color: var(--valdon-gold-light);
+    color: var(--valdon-gold-light);
+}
+
+.valdon-sticky-call::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 2px solid var(--valdon-gold);
+    opacity: 0.6;
+    animation: valdon-call-pulse 2s ease-out infinite;
+}
+
+@keyframes valdon-call-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    70% {
+        transform: scale(1.18);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.18);
+        opacity: 0;
+    }
+}
+
+/* Back to top */
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: calc(1.5rem + 58px + 1.1rem);
+    right: calc(1.5rem + (58px - 44px) / 2);
+    z-index: 99;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--valdon-gold);
+    border-radius: 50%;
+    background: var(--valdon-bg-card);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.valdon-back-arrow {
+    display: block;
+    font-family: var(--font-sans);
+    color: var(--valdon-gold-light);
+    font-size: 1.35rem;
+    line-height: 1;
+    font-weight: 700;
+}
+
+#backToTopBtn:hover {
+    background: rgba(196, 163, 90, 0.15);
+    transform: scale(1.05);
+}
+
+#backToTopBtn:hover .valdon-back-arrow {
+    color: var(--valdon-gold);
+}
+
+@media (min-width: 993px) {
+    .valdon-reviews-slider .slick-dots {
+        display: none !important;
+    }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .valdon-nav,
+    .valdon-header .valdon-btn-call.desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: inline-flex;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    .valdon-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .valdon-brand-name--header {
+        font-size: 1.35rem;
+    }
+
+    .valdon-logo--header {
+        width: 36px;
+        height: 36px;
+    }
+
+    .valdon-sticky-call {
+        bottom: 1.25rem;
+        right: 1.25rem;
+        width: 54px;
+        height: 54px;
+    }
+
+    #backToTopBtn {
+        bottom: calc(1.25rem + 54px + 1rem);
+        right: calc(1.25rem + (54px - 44px) / 2);
+    }
+
+    .valdon-steps,
+    .valdon-reviews {
+        grid-template-columns: 1fr;
+    }
+
+    .valdon-services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .valdon-team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .valdon-footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .valdon-hotline,
+    .valdon-footer-cta {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .valdon-services {
+        grid-template-columns: 1fr;
+    }
+}

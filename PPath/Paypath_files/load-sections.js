@@ -1,22 +1,6 @@
 (function () {
     'use strict';
 
-    const SECTIONS = [
-        'sections/header.html',
-        'sections/hero.html',
-        'sections/about.html',
-        'sections/finance.html',
-        'sections/ipsum-logo.html',
-        'sections/gateway.html',
-        'sections/services.html',
-        'sections/visa.html',
-        'sections/pricing.html',
-        'sections/professional.html',
-        'sections/question.html',
-        'sections/news-cards.html',
-        'sections/footer.html'
-    ];
-
     function loadScript(src) {
         return new Promise(function (resolve, reject) {
             var script = document.createElement('script');
@@ -36,28 +20,28 @@
     }
 
     async function injectSections() {
-        var firstGroup = document.getElementById('first-nav-hero-about');
-        var mainSections = document.getElementById('main-sections');
-        var htmlParts = await Promise.all(SECTIONS.map(loadSection));
+        var placeholders = document.querySelectorAll('[data-include]');
+        var loads = Array.prototype.map.call(placeholders, async function (element) {
+            var path = element.getAttribute('data-include');
+            var html = await loadSection(path);
+            var temp = document.createElement('div');
+            temp.innerHTML = html.trim();
+            var parent = element.parentNode;
 
-        firstGroup.innerHTML = htmlParts.slice(0, 3).join('\n');
-        mainSections.innerHTML = htmlParts.slice(3).join('\n');
+            while (temp.firstChild) {
+                parent.insertBefore(temp.firstChild, element);
+            }
+
+            parent.removeChild(element);
+        });
+        await Promise.all(loads);
     }
 
     async function loadAppScripts() {
         await loadScript('./Paypath_files/jquery.js.download');
-        await loadScript('./Paypath_files/bootstrap.min.js.download');
         await loadScript('./Paypath_files/slick.min.js.download');
-        await loadScript('./Paypath_files/waypoints.min.js.download');
-        await loadScript('./Paypath_files/custom.js.download');
         await loadScript('./Paypath_files/aos.js.download');
-
-        if (window.AOS) {
-            AOS.init({
-                once: true,
-                duration: 1500
-            });
-        }
+        await loadScript('./Paypath_files/valdon-init.js');
     }
 
     injectSections()
@@ -66,7 +50,7 @@
             console.error(error);
             document.body.insertAdjacentHTML(
                 'afterbegin',
-                '<div style="padding:1rem;background:#fee;color:#900;">Could not load page sections. Serve this folder with a local web server (e.g. Live Server).</div>'
+                '<div style="padding:1rem;background:#fee;color:#900;">Неуспешно зареждане на секциите. Стартирайте локален сървър (напр. Live Server).</div>'
             );
         });
 })();
