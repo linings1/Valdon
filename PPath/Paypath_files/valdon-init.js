@@ -92,6 +92,32 @@
         }
     }
 
+    function initMonumentCompare() {
+        document.querySelectorAll('[data-valdon-compare]').forEach(function (root) {
+            var range = root.querySelector('.valdon-monument-compare-range');
+            var before = root.querySelector('.valdon-monument-compare-before');
+            var beforeImg = root.querySelector('.valdon-monument-compare-before-img');
+            var handle = root.querySelector('.valdon-monument-compare-handle');
+            if (!range || !before || !beforeImg) {
+                return;
+            }
+
+            function sync() {
+                var pct = Number(range.value);
+                var width = root.clientWidth;
+                before.style.width = pct + '%';
+                beforeImg.style.width = width + 'px';
+                if (handle) {
+                    handle.style.left = pct + '%';
+                }
+            }
+
+            sync();
+            range.addEventListener('input', sync);
+            window.addEventListener('resize', sync);
+        });
+    }
+
     function initBackToTop() {
         var btn = document.getElementById('backToTopBtn');
         if (!btn) {
@@ -115,5 +141,6 @@
     initSmoothScroll();
     initSliders();
     initAos();
+    initMonumentCompare();
     initBackToTop();
 })();

@@ -1,11 +1,19 @@
 :root {
-    --valdon-bg: #141010;
-    --valdon-bg-card: #1c1612;
-    --valdon-gold: #c4a35a;
-    --valdon-gold-light: #dbc07a;
-    --valdon-text: #e8dfd0;
-    --valdon-text-muted: #a89880;
-    --valdon-border: rgba(196, 163, 90, 0.35);
+    /* PDF palette: Цветове сайт.pdf */
+    --valdon-cream: #F2EADC;
+    --valdon-cream-warm: #F0E1CE;
+    --valdon-taupe: #D5CDBF;
+    --valdon-brown-mid: #B19E8D;
+    --valdon-brown: #77614D;
+
+    --valdon-bg: var(--valdon-cream);
+    --valdon-bg-card: var(--valdon-cream-warm);
+    --valdon-bg-header: var(--valdon-taupe);
+    --valdon-gold: var(--valdon-brown);
+    --valdon-gold-light: var(--valdon-brown);
+    --valdon-text: var(--valdon-brown);
+    --valdon-text-muted: var(--valdon-brown-mid);
+    --valdon-border: rgba(119, 97, 77, 0.35);
     --font-serif: 'Cormorant Garamond', 'Times New Roman', Times, serif;
     --font-sans: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif;
 }
@@ -81,9 +89,10 @@ a {
     border: none;
 }
 
-.valdon-hero .valdon-header {
+.valdon-hero .valdon-header,
+.valdon-header--standalone {
     position: relative;
-    background: rgba(10, 8, 6, 0.97);
+    background: var(--valdon-bg-header);
     border-bottom: 1px solid var(--valdon-border);
     padding: 0.7rem 0;
 }
@@ -246,7 +255,7 @@ a {
 
 .valdon-nav a:hover,
 .valdon-nav a.active {
-    color: var(--valdon-gold);
+    color: var(--valdon-text-muted);
 }
 
 .valdon-nav a.active {
@@ -283,7 +292,7 @@ a {
     font-size: 0.85rem;
     text-transform: none;
     letter-spacing: 0.02em;
-    background: rgba(8, 6, 5, 0.85);
+    background: var(--valdon-cream);
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
     white-space: nowrap;
@@ -292,6 +301,7 @@ a {
 .valdon-btn-call:hover {
     background: var(--valdon-gold);
     color: var(--valdon-bg);
+    border-color: var(--valdon-gold);
 }
 
 .valdon-menu-toggle {
@@ -310,7 +320,7 @@ a {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(10, 8, 6, 0.97);
+    background: var(--valdon-bg-header);
     z-index: 200;
     flex-direction: column;
     align-items: center;
@@ -351,7 +361,7 @@ a {
 .valdon-hero {
     position: relative;
     width: 100%;
-    background: #080605;
+    background: var(--valdon-bg);
     border-bottom: 1px solid var(--valdon-border);
     overflow: hidden;
 }
@@ -361,7 +371,7 @@ a {
     height: auto;
     display: block;
     min-height: clamp(160px, 28vw, 320px);
-    background: #080605;
+    background: var(--valdon-bg);
     vertical-align: top;
 }
 
@@ -470,10 +480,26 @@ a {
 }
 
 /* Services */
+.valdon-services-group-header {
+    margin: 2.75rem 0 1.5rem;
+}
+
+.valdon-services-group-header .valdon-about-subtitle {
+    margin-bottom: 0;
+}
+
 .valdon-services {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
+}
+
+.valdon-services--farewell {
+    margin-top: 0;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .valdon-service-card {
@@ -592,6 +618,447 @@ a {
 
 .valdon-team-text p + p {
     margin-top: 1rem;
+}
+
+/* About */
+.valdon-about-inner {
+    max-width: 820px;
+}
+
+.valdon-about-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.valdon-about-header .valdon-section-title {
+    margin-bottom: 0.75rem;
+}
+
+.valdon-about-header .valdon-title-ornament {
+    margin: 1.25rem auto 0;
+}
+
+.valdon-about-lead {
+    font-family: var(--font-serif);
+    font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+    color: var(--valdon-gold-light);
+    margin: 0;
+    line-height: 1.45;
+}
+
+.valdon-about-prose,
+.valdon-about-block {
+    margin-bottom: 2rem;
+}
+
+.valdon-about-prose p,
+.valdon-about-block p {
+    font-size: 0.95rem;
+    color: var(--valdon-text-muted);
+    margin: 0;
+    line-height: 1.75;
+}
+
+.valdon-about-prose p + p {
+    margin-top: 1rem;
+}
+
+.valdon-about-subtitle {
+    font-family: var(--font-serif);
+    font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+    color: var(--valdon-gold-light);
+    margin: 0 0 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.valdon-about-subtitle--center {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.valdon-about-trust {
+    margin-bottom: 2.5rem;
+}
+
+.valdon-about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.valdon-about-list li {
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+    padding: 1.25rem 1.35rem;
+    font-size: 0.92rem;
+    color: var(--valdon-text-muted);
+    line-height: 1.65;
+}
+
+.valdon-about-list strong {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--valdon-gold-light);
+    margin-bottom: 0.35rem;
+}
+
+.valdon-about-phone {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 1.5rem;
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+}
+
+.valdon-about-phone-label {
+    font-size: 0.95rem;
+    color: var(--valdon-text-muted);
+    margin: 0 0 0.65rem;
+}
+
+.valdon-about-phone-number {
+    display: inline-block;
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 600;
+    color: var(--valdon-gold);
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+}
+
+.valdon-about-phone-number:hover {
+    color: var(--valdon-text-muted);
+}
+
+.valdon-about-phone-note {
+    font-size: 0.92rem;
+    color: var(--valdon-text-muted);
+    margin: 1rem 0 0;
+    font-style: italic;
+}
+
+.valdon-about-notice {
+    border: 1px solid var(--valdon-gold);
+    border-radius: 6px;
+    padding: 1.35rem 1.5rem;
+    background: rgba(119, 97, 77, 0.06);
+}
+
+.valdon-about-notice-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--valdon-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 0.65rem;
+}
+
+.valdon-about-notice p {
+    font-size: 0.88rem;
+    color: var(--valdon-text-muted);
+    margin: 0;
+    line-height: 1.7;
+}
+
+.valdon-about-notice a {
+    color: var(--valdon-gold);
+    font-weight: 600;
+}
+
+.valdon-about-notice a:hover {
+    color: var(--valdon-text-muted);
+}
+
+@media (min-width: 768px) {
+    .valdon-about-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Service pages (burial, etc.) */
+.valdon-service-page {
+    padding-top: 3.5rem;
+}
+
+.valdon-package {
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+    padding: 2rem 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.valdon-package-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+    font-weight: 600;
+    color: var(--valdon-gold-light);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: center;
+    margin: 0 0 1.5rem;
+}
+
+.valdon-package-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.55rem;
+    counter-reset: package-item;
+}
+
+.valdon-package-list li {
+    position: relative;
+    padding-left: 2rem;
+    font-size: 0.9rem;
+    color: var(--valdon-text-muted);
+    line-height: 1.55;
+    counter-increment: package-item;
+}
+
+.valdon-package-list li::before {
+    content: counter(package-item) '.';
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 1.5rem;
+    color: var(--valdon-gold);
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.valdon-package-price {
+    margin: 1.75rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--valdon-border);
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--valdon-gold-light);
+}
+
+.valdon-package-price strong {
+    font-size: clamp(1.35rem, 3vw, 1.65rem);
+    color: var(--valdon-gold);
+    font-weight: 700;
+}
+
+.valdon-package-note {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .valdon-package-list {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1.5rem;
+    }
+}
+
+/* Advice / grief support page */
+.valdon-advice-blocks {
+    display: grid;
+    gap: 1.15rem;
+    margin-bottom: 2.5rem;
+}
+
+.valdon-advice-item {
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+    padding: 1.35rem 1.5rem;
+}
+
+.valdon-advice-heading {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--valdon-gold-light);
+    margin: 0 0 0.65rem;
+    line-height: 1.35;
+}
+
+.valdon-advice-item > p {
+    font-size: 0.92rem;
+    color: var(--valdon-text-muted);
+    margin: 0;
+    line-height: 1.7;
+}
+
+.valdon-prose-bullets {
+    margin: 0.75rem 0 0;
+    padding-left: 1.2rem;
+    color: var(--valdon-text-muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+.valdon-prose-bullets li + li {
+    margin-top: 0.35rem;
+}
+
+.valdon-books-intro p {
+    text-align: center;
+}
+
+.valdon-books-for-kids-note {
+    text-align: center;
+    font-size: 0.92rem;
+    color: var(--valdon-text-muted);
+    margin: -0.25rem 0 1rem;
+    line-height: 1.6;
+}
+
+.valdon-book-help {
+    display: block;
+    font-style: normal;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--valdon-gold);
+    margin: 0.55rem 0 0.3rem;
+}
+
+.valdon-about-list--single {
+    grid-template-columns: 1fr;
+}
+
+.valdon-section-cta {
+    text-align: center;
+    margin: 2.25rem 0 0;
+}
+
+.valdon-service-highlight {
+    margin-bottom: 2.5rem;
+}
+
+.valdon-burial-steps {
+    margin-bottom: 2.5rem;
+}
+
+.valdon-burial-steps-note {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--valdon-text-muted);
+    margin-top: 0.35rem;
+}
+
+.valdon-burial-steps-intro {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--valdon-text-muted);
+    margin: 0 0 1.75rem;
+    line-height: 1.7;
+}
+
+.valdon-burial-timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.25rem;
+    counter-reset: burial-step;
+}
+
+.valdon-burial-timeline > li {
+    counter-increment: burial-step;
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+    padding: 1.35rem 1.35rem 1.35rem 3.75rem;
+    position: relative;
+}
+
+.valdon-burial-timeline > li::before {
+    content: counter(burial-step);
+    position: absolute;
+    left: 1.15rem;
+    top: 1.35rem;
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 50%;
+    border: 1px solid var(--valdon-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--valdon-gold);
+    line-height: 1;
+}
+
+.valdon-burial-timeline h3 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--valdon-gold-light);
+    margin: 0 0 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.valdon-burial-timeline h3 span {
+    text-transform: none;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--valdon-text-muted);
+    letter-spacing: 0;
+}
+
+.valdon-burial-timeline > li > p {
+    font-size: 0.92rem;
+    color: var(--valdon-text-muted);
+    margin: 0;
+    line-height: 1.7;
+}
+
+.valdon-burial-timeline a {
+    color: var(--valdon-gold);
+    font-weight: 600;
+}
+
+.valdon-burial-timeline a:hover {
+    color: var(--valdon-text-muted);
+}
+
+.valdon-burial-substeps {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: grid;
+    gap: 0.85rem;
+}
+
+.valdon-burial-substeps li {
+    font-size: 0.9rem;
+    color: var(--valdon-text-muted);
+    line-height: 1.65;
+    padding-left: 0.85rem;
+    border-left: 2px solid var(--valdon-border);
+}
+
+.valdon-burial-substeps strong {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--valdon-gold-light);
+    margin-bottom: 0.2rem;
 }
 
 /* Hotline (mobile prominent) */
@@ -729,7 +1196,7 @@ a {
     border-radius: 6px;
     overflow: hidden;
     height: 180px;
-    background: #1e1814;
+    background: var(--valdon-taupe);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -740,7 +1207,7 @@ a {
     width: 100%;
     height: 100%;
     border: 0;
-    filter: grayscale(30%) brightness(0.7);
+    filter: grayscale(15%) brightness(1.02);
 }
 
 .valdon-address {
@@ -862,13 +1329,13 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 4px 20px rgba(119, 97, 77, 0.2);
     transition: transform 0.2s, background 0.2s, border-color 0.2s;
 }
 
 .valdon-sticky-call:hover {
     transform: scale(1.06);
-    background: rgba(196, 163, 90, 0.12);
+    background: rgba(119, 97, 77, 0.12);
     border-color: var(--valdon-gold-light);
     color: var(--valdon-gold-light);
 }
@@ -927,7 +1394,7 @@ a {
 }
 
 #backToTopBtn:hover {
-    background: rgba(196, 163, 90, 0.15);
+    background: rgba(119, 97, 77, 0.15);
     transform: scale(1.05);
 }
 
@@ -938,6 +1405,959 @@ a {
 @media (min-width: 993px) {
     .valdon-reviews-slider .slick-dots {
         display: none !important;
+    }
+}
+
+/* Coffin catalog (showcase + gallery) */
+.valdon-product-showcase {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: start;
+}
+
+@media (min-width: 992px) {
+    .valdon-product-showcase {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: 2.5rem;
+    }
+}
+
+.valdon-product-showcase-main .valdon-about-subtitle {
+    margin-bottom: 1.25rem;
+}
+
+.valdon-product-steps {
+    list-style: none;
+    padding: 0 0 0 0.15rem;
+    margin: 0;
+    position: relative;
+}
+
+.valdon-product-steps::before {
+    content: "";
+    position: absolute;
+    left: 2.65rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 1px;
+    background: var(--valdon-border);
+}
+
+.valdon-product-steps > li {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: 1rem;
+    align-items: start;
+    padding: 0.65rem 0 1.15rem;
+    position: relative;
+}
+
+.valdon-product-steps > li > img {
+    width: 88px;
+    height: 66px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--valdon-border);
+    background: var(--valdon-bg-card);
+}
+
+.valdon-product-steps h3 {
+    font-family: var(--font-serif);
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--valdon-gold-light);
+    margin: 0 0 0.4rem;
+    line-height: 1.35;
+}
+
+.valdon-product-step-num {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--valdon-gold);
+    margin-right: 0.35rem;
+}
+
+.valdon-product-steps > li > div > p {
+    font-size: 0.88rem;
+    color: var(--valdon-text-muted);
+    margin: 0;
+    line-height: 1.65;
+}
+
+.valdon-product-feature-photo {
+    margin: 0 0 1rem;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--valdon-border);
+}
+
+.valdon-product-feature-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.valdon-product-handnote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--valdon-gold);
+    margin: 0 0 1rem;
+    text-align: center;
+}
+
+.valdon-product-quote {
+    margin: 0;
+    padding: 1.25rem 1.35rem;
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+}
+
+.valdon-product-quote p {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--valdon-text);
+    margin: 0 0 0.65rem;
+}
+
+.valdon-product-quote footer {
+    font-size: 0.82rem;
+    color: var(--valdon-text-muted);
+}
+
+.valdon-gallery-preview {
+    margin-bottom: 2.5rem;
+}
+
+.valdon-gallery-preview-head {
+    display: grid;
+    gap: 0.65rem;
+    margin-bottom: 1.15rem;
+}
+
+@media (min-width: 768px) {
+    .valdon-gallery-preview-head {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        align-items: end;
+        column-gap: 1.5rem;
+    }
+
+    .valdon-gallery-preview-title {
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: 0;
+    }
+
+    .valdon-gallery-preview-intro {
+        grid-column: 1;
+        grid-row: 2;
+        margin: 0;
+        max-width: 36rem;
+    }
+
+    .valdon-gallery-preview-link {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: center;
+        justify-self: end;
+    }
+}
+
+.valdon-gallery-preview-intro {
+    font-size: 0.92rem;
+    color: var(--valdon-text-muted);
+    line-height: 1.65;
+}
+
+.valdon-gallery-preview-link {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--valdon-gold);
+    white-space: nowrap;
+}
+
+.valdon-gallery-preview-link:hover {
+    color: var(--valdon-text-muted);
+}
+
+.valdon-gallery-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.35rem;
+}
+
+@media (min-width: 640px) {
+    .valdon-gallery-strip {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .valdon-gallery-strip {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.4rem;
+    }
+}
+
+.valdon-gallery-strip-item {
+    margin: 0;
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid var(--valdon-border);
+    background: var(--valdon-bg-card);
+}
+
+.valdon-gallery-strip-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.valdon-gallery-strip-item--more {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    text-align: center;
+    padding: 0.75rem;
+    background: rgba(119, 97, 77, 0.88);
+    color: var(--valdon-cream);
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.35;
+    transition: background 0.2s;
+}
+
+.valdon-gallery-strip-item--more:hover {
+    background: var(--valdon-brown);
+    color: var(--valdon-cream);
+}
+
+.valdon-gallery-strip-arrow {
+    font-size: 1.15rem;
+    line-height: 1;
+}
+
+.valdon-coffin-benefits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1rem;
+    margin-bottom: 2.75rem;
+    padding: 1.15rem 1.25rem;
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+}
+
+@media (min-width: 768px) {
+    .valdon-coffin-benefits {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.valdon-coffin-benefit {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--valdon-text-muted);
+    line-height: 1.35;
+}
+
+.valdon-coffin-benefit-icon {
+    color: var(--valdon-gold);
+    font-size: 0.55rem;
+    flex-shrink: 0;
+}
+
+.valdon-coffin-catalog {
+    margin-bottom: 2.5rem;
+}
+
+.valdon-coffin-catalog-intro {
+    text-align: center;
+    font-size: 0.92rem;
+    color: var(--valdon-text-muted);
+    max-width: 40rem;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+}
+
+.valdon-coffin-group-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--valdon-gold-light);
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--valdon-border);
+}
+
+.valdon-coffin-group-title span {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--valdon-text-muted);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.valdon-coffin-group-title + .valdon-coffin-grid {
+    margin-bottom: 2rem;
+}
+
+.valdon-coffin-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .valdon-coffin-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .valdon-coffin-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.valdon-coffin-grid figure {
+    margin: 0;
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.valdon-coffin-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.valdon-coffin-grid figcaption {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--valdon-text);
+    text-align: center;
+    border-top: 1px solid var(--valdon-border);
+}
+
+/* Monument catalog page */
+.valdon-monument-page.valdon-service-page {
+    padding-top: 0;
+}
+
+.valdon-monument-inner {
+    max-width: 1140px;
+}
+
+.valdon-monument-hero {
+    display: grid;
+    min-height: min(520px, 85vh);
+    background: var(--valdon-bg);
+}
+
+@media (min-width: 992px) {
+    .valdon-monument-hero {
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        min-height: min(560px, 78vh);
+        align-items: stretch;
+    }
+
+    .valdon-monument-compare-wrap,
+    .valdon-monument-compare,
+    .valdon-monument-compare-after {
+        min-height: 100%;
+    }
+
+    .valdon-monument-feature {
+        position: sticky;
+        top: 1rem;
+    }
+}
+
+.valdon-monument-hero-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.85rem;
+    padding: 2.25rem 1.35rem 2rem;
+    background: linear-gradient(145deg, #5c4d40 0%, #4a4038 55%, #3d3530 100%);
+    color: var(--valdon-cream);
+}
+
+@media (min-width: 992px) {
+    .valdon-monument-hero-panel {
+        padding: 2.75rem 2.5rem 2.75rem max(1.5rem, calc((100vw - 1140px) / 2 + 1rem));
+    }
+}
+
+.valdon-monument-hero-kicker {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(242, 234, 220, 0.75);
+}
+
+.valdon-monument-hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.55rem, 3.8vw, 2.15rem);
+    font-weight: 600;
+    line-height: 1.28;
+    margin: 0;
+    color: var(--valdon-cream);
+}
+
+.valdon-monument-hero-title span {
+    color: var(--valdon-cream-warm);
+}
+
+.valdon-monument-hero-lead {
+    margin: 0;
+    max-width: 26rem;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(242, 234, 220, 0.82);
+}
+
+.valdon-monument-hero-cta {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-top: 0.35rem;
+    padding: 0.75rem 1.35rem;
+    border-radius: 4px;
+    background: var(--valdon-cream-warm);
+    color: var(--valdon-brown);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+}
+
+.valdon-monument-hero-cta:hover {
+    background: var(--valdon-cream);
+    color: #3d3530;
+}
+
+.valdon-monument-hero-points {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 1rem 0 0;
+    border-top: 1px solid rgba(242, 234, 220, 0.2);
+    display: grid;
+    gap: 0.55rem;
+}
+
+@media (min-width: 480px) {
+    .valdon-monument-hero-points {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.65rem;
+    }
+}
+
+.valdon-monument-hero-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    line-height: 1.35;
+    color: rgba(242, 234, 220, 0.88);
+}
+
+.valdon-monument-hero-point-icon {
+    color: var(--valdon-cream-warm);
+    font-size: 0.55rem;
+    margin-top: 0.2rem;
+}
+
+.valdon-monument-compare-wrap {
+    position: relative;
+    min-height: 280px;
+    background: #2f2925;
+}
+
+.valdon-monument-compare {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    overflow: hidden;
+    user-select: none;
+    touch-action: none;
+}
+
+.valdon-monument-compare-after {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+}
+
+.valdon-monument-compare-before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 48%;
+    overflow: hidden;
+    border-right: 2px solid var(--valdon-cream);
+    pointer-events: none;
+}
+
+.valdon-monument-compare-before-img {
+    display: block;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.15) brightness(1.05) sepia(0.25);
+}
+
+.valdon-monument-compare-tag {
+    position: absolute;
+    top: 1rem;
+    z-index: 2;
+    padding: 0.35rem 0.65rem;
+    border-radius: 3px;
+    background: rgba(61, 53, 48, 0.82);
+    color: var(--valdon-cream);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.valdon-monument-compare-tag--before {
+    left: 1rem;
+}
+
+.valdon-monument-compare-tag--after {
+    right: 1rem;
+}
+
+.valdon-monument-compare-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 48%;
+    width: 2px;
+    margin-left: -1px;
+    background: var(--valdon-cream);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.valdon-monument-compare-handle span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: var(--valdon-cream);
+    color: var(--valdon-brown);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: -0.15em;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.valdon-monument-compare-range {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: ew-resize;
+    z-index: 4;
+}
+
+.valdon-monument-process-head {
+    display: grid;
+    gap: 1rem;
+    margin: 2.75rem 0 1.5rem;
+    align-items: start;
+}
+
+@media (min-width: 992px) {
+    .valdon-monument-process-head {
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .valdon-monument-process-title {
+        margin-bottom: 0;
+        font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    }
+}
+
+.valdon-monument-process-intro {
+    font-size: 0.92rem;
+    color: var(--valdon-text-muted);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.valdon-monument-showcase {
+    margin-bottom: 2.75rem;
+}
+
+.valdon-monument-steps::before {
+    left: 1.75rem;
+}
+
+.valdon-monument-steps > li {
+    grid-template-columns: 56px 1fr;
+    gap: 0.85rem 1rem;
+}
+
+.valdon-step-thumb {
+    position: relative;
+    margin: 0;
+    width: 56px;
+    height: 56px;
+}
+
+.valdon-step-thumb img {
+    display: block;
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--valdon-border);
+    background: var(--valdon-bg-card);
+}
+
+.valdon-step-thumb-num {
+    position: absolute;
+    right: -4px;
+    bottom: -4px;
+    min-width: 1.05rem;
+    height: 1.05rem;
+    padding: 0 0.18rem;
+    border-radius: 999px;
+    background: var(--valdon-brown);
+    color: var(--valdon-cream);
+    font-size: 0.58rem;
+    font-weight: 600;
+    line-height: 1.05rem;
+    text-align: center;
+    border: 1px solid var(--valdon-cream-warm);
+}
+
+.valdon-monument-feature .valdon-product-feature-photo img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.valdon-monument-handnote {
+    text-align: left;
+}
+
+.valdon-monument-gallery {
+    margin-bottom: 0;
+    padding-bottom: 2.25rem;
+}
+
+.valdon-gallery-strip--tall .valdon-gallery-strip-item {
+    aspect-ratio: 3 / 4;
+}
+
+.valdon-monument-trust-bar {
+    padding: 1.35rem 0;
+    background: var(--valdon-bg-card);
+    border-top: 1px solid var(--valdon-border);
+    border-bottom: 1px solid var(--valdon-border);
+    margin-bottom: 2.5rem;
+}
+
+.valdon-monument-trust-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    align-items: stretch;
+}
+
+@media (min-width: 992px) {
+    .valdon-monument-trust-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+    }
+}
+
+.valdon-monument-trust-items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem 1rem;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .valdon-monument-trust-items {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.valdon-monument-trust-cta {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px;
+    background: var(--valdon-brown);
+    color: var(--valdon-cream);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+
+.valdon-monument-trust-cta:hover {
+    background: #5c4d40;
+    color: var(--valdon-cream);
+}
+
+.valdon-monument-care {
+    margin-bottom: 2.5rem;
+}
+
+.valdon-monument-care .valdon-about-list {
+    margin-top: 0.5rem;
+}
+
+.valdon-gallery-strip-item--numbered {
+    position: relative;
+}
+
+.valdon-gallery-strip-num {
+    position: absolute;
+    left: 0.4rem;
+    bottom: 0.35rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 3px;
+    background: rgba(119, 97, 77, 0.88);
+    color: var(--valdon-cream);
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.valdon-coffin-grid--compact {
+    gap: 0.65rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (min-width: 480px) {
+    .valdon-coffin-grid--compact {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .valdon-coffin-grid--compact {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .valdon-coffin-grid--compact {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+.valdon-coffin-grid--compact img {
+    aspect-ratio: 1;
+}
+
+.valdon-coffin-grid--compact figcaption {
+    padding: 0.35rem 0.25rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.valdon-stoki-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .valdon-stoki-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .valdon-stoki-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.valdon-stoki-card {
+    display: block;
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.valdon-stoki-card:hover {
+    border-color: var(--valdon-gold);
+    transform: translateY(-2px);
+}
+
+.valdon-stoki-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.valdon-stoki-card span {
+    display: block;
+    padding: 0.75rem 0.5rem;
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--valdon-gold-light);
+}
+
+.valdon-services--hub {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+    .valdon-services--hub {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.valdon-services-intro {
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.valdon-skip-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.valdon-skip-links a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--valdon-gold);
+}
+
+.valdon-skip-links a:hover {
+    color: var(--valdon-text-muted);
+}
+
+.valdon-death-guide {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--valdon-border);
+}
+
+.valdon-death-guide:last-of-type {
+    border-bottom: none;
+}
+
+.valdon-page-figure {
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.valdon-contact-list--page {
+    max-width: 28rem;
+    margin: 0 auto 2rem;
+    list-style: none;
+    padding: 0;
+}
+
+.valdon-contact-list--page li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+    color: var(--valdon-text-muted);
+}
+
+.valdon-map--page {
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.valdon-map--page iframe {
+    width: 100%;
+    min-height: 320px;
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+}
+
+.valdon-footer-more {
+    margin: 0.75rem 0 0;
+    font-size: 0.88rem;
+}
+
+@media (max-width: 991px) {
+    .valdon-product-steps::before {
+        display: none;
+    }
+
+    .valdon-product-steps > li {
+        grid-template-columns: 72px 1fr;
+    }
+
+    .valdon-product-steps > li > img {
+        width: 72px;
+        height: 54px;
     }
 }
 
