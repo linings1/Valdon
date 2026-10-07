@@ -1,0 +1,29 @@
+# Fallback: publishes PPath to gh-pages branch (Settings → Pages → Deploy from branch → gh-pages / root)
+name: Publish gh-pages branch
+
+on:
+  push:
+    branches: [develop]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages-branch
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Publish PPath to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: PPath
+          branch: gh-pages
+          clean: true
+          single-commit: true
