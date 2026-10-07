@@ -361,18 +361,26 @@ a {
 .valdon-hero {
     position: relative;
     width: 100%;
-    background: var(--valdon-bg);
+    background: #ebe6dc;
     border-bottom: 1px solid var(--valdon-border);
     overflow: hidden;
 }
 
 .valdon-hero-full-img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
-    min-height: clamp(160px, 28vw, 320px);
-    background: var(--valdon-bg);
+    aspect-ratio: 2078 / 757;
+    object-fit: contain;
+    object-position: center;
     vertical-align: top;
+}
+
+@media (max-width: 767px) {
+    .valdon-hero-full-img {
+        aspect-ratio: 2078 / 757;
+    }
 }
 
 /* Sections common */
@@ -1682,6 +1690,186 @@ a {
     flex-shrink: 0;
 }
 
+.valdon-coffin-showcase-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 0 2.5rem;
+}
+
+.valdon-coffin-showcase-stack .valdon-coffin-showcase-img {
+    margin: 0;
+    width: 100%;
+}
+
+.valdon-coffin-showcase-img {
+    margin: 0 0 2.5rem;
+    text-align: center;
+}
+
+.valdon-coffin-showcase-img img {
+    width: 100%;
+    max-width: 960px;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid var(--valdon-border);
+    border-radius: 4px;
+}
+
+.valdon-about-inner--keturing {
+    max-width: min(1080px, 92%);
+}
+
+.valdon-keturing-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem 1rem;
+    margin-bottom: 2.25rem;
+    padding: 1.15rem 1.25rem;
+    background: linear-gradient(135deg, var(--valdon-bg-card) 0%, rgba(240, 225, 206, 0.65) 100%);
+    border: 1px solid var(--valdon-border);
+    border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+    .valdon-keturing-highlights {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.valdon-keturing-highlight {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--valdon-text-muted);
+    line-height: 1.35;
+}
+
+.valdon-keturing-highlight-mark {
+    color: var(--valdon-gold);
+    font-size: 0.5rem;
+    flex-shrink: 0;
+}
+
+.valdon-keturing-catalog {
+    margin-bottom: 2.75rem;
+}
+
+.valdon-keturing-catalog-intro {
+    text-align: center;
+    font-size: 0.92rem;
+    color: var(--valdon-text-muted);
+    max-width: 36rem;
+    margin: 0 auto 1rem;
+    line-height: 1.7;
+}
+
+.valdon-keturing-catalog-note {
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--valdon-text-muted);
+    max-width: 40rem;
+    margin: 0 auto 1.75rem;
+    line-height: 1.7;
+}
+
+.valdon-keturing-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width: 720px) {
+    .valdon-keturing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.65rem 1.35rem;
+    }
+}
+
+.valdon-keturing-card {
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(119, 97, 77, 0.07);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.valdon-keturing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(119, 97, 77, 0.11);
+}
+
+.valdon-keturing-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: top;
+}
+
+.valdon-keturing-card-body {
+    padding: 1.1rem 1.25rem 1.3rem;
+    border-top: 1px solid var(--valdon-border);
+}
+
+.valdon-keturing-variant {
+    margin: 0 0 0.45rem;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--valdon-gold-light);
+    letter-spacing: 0.02em;
+}
+
+.valdon-keturing-items {
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: var(--valdon-text-muted);
+}
+
+.valdon-keturing-extras-wrap {
+    margin-bottom: 2rem;
+}
+
+.valdon-keturing-extras {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .valdon-keturing-extras {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.valdon-keturing-extra {
+    background: var(--valdon-bg-card);
+    border: 1px solid var(--valdon-border);
+    border-radius: 8px;
+    padding: 1.25rem 1.35rem 1.35rem;
+    height: 100%;
+}
+
+.valdon-keturing-extra h3 {
+    margin: 0 0 0.55rem;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--valdon-gold-light);
+    line-height: 1.35;
+}
+
+.valdon-keturing-extra p {
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.65;
+    color: var(--valdon-text-muted);
+}
+
 .valdon-coffin-catalog {
     margin-bottom: 2.5rem;
 }
@@ -2305,6 +2493,15 @@ a {
 
 .valdon-death-guide:last-of-type {
     border-bottom: none;
+}
+
+.valdon-death-guide .valdon-advice-heading {
+    margin-top: 1.75rem;
+    margin-bottom: 0.85rem;
+}
+
+.valdon-death-guide .valdon-about-list {
+    margin-bottom: 1.25rem;
 }
 
 .valdon-page-figure {

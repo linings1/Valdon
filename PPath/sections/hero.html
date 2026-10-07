@@ -35,7 +35,11 @@
         </div>
     </header>
 
-    <img src="./Paypath_files/hero-full.png" alt="Валдон — Погребални услуги. Доволни клиенти. 26 години опит." class="valdon-hero-full-img">
+    <picture>
+        <source type="image/jpeg" media="(max-width: 767px)" srcset="./Paypath_files/hero-mobile.jpg?v=20261009">
+        <source type="image/jpeg" media="(min-width: 768px) and (min-resolution: 1.5dppx), (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5)" srcset="./Paypath_files/hero-full-2x.jpg?v=20261009">
+        <img src="./Paypath_files/hero-full.jpg?v=20261009" srcset="./Paypath_files/hero-full.jpg?v=20261009 2078w" sizes="100vw" alt="Валдон — денонощен траурен дом. 30 години до Вас." class="valdon-hero-full-img" width="2078" height="757" decoding="async" fetchpriority="high">
+    </picture>
 </section>
 
 <nav class="valdon-mobile-nav" id="valdon-mobile-nav" aria-label="Мобилна навигация">
