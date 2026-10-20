@@ -45,7 +45,10 @@
                 var target = document.querySelector(targetId);
                 if (target) {
                     event.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    var rootStyles = getComputedStyle(document.documentElement);
+                    var headerOffset = parseFloat(rootStyles.getPropertyValue('--valdon-header-height')) || 0;
+                    var top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
                 }
             });
         });
@@ -118,6 +121,23 @@
         });
     }
 
+    function syncFixedHeaderOffset() {
+        var header = document.querySelector('.valdon-header--standalone, .valdon-hero-wrapper > .valdon-header');
+        if (!header) {
+            return;
+        }
+        document.documentElement.style.setProperty('--valdon-header-height', header.offsetHeight + 'px');
+    }
+
+    function initFixedHeader() {
+        syncFixedHeaderOffset();
+        window.addEventListener('resize', syncFixedHeaderOffset);
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(syncFixedHeaderOffset);
+        }
+        window.addEventListener('load', syncFixedHeaderOffset);
+    }
+
     function initBackToTop() {
         var btn = document.getElementById('backToTopBtn');
         if (!btn) {
@@ -137,6 +157,7 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    initFixedHeader();
     initMobileMenu();
     initSmoothScroll();
     initSliders();

@@ -14,16 +14,28 @@
     --valdon-text: var(--valdon-brown);
     --valdon-text-muted: var(--valdon-brown-mid);
     --valdon-border: rgba(119, 97, 77, 0.35);
+    --valdon-call-green: #62762d;
+    --valdon-call-green-hover: #516024;
+    --valdon-nav-text: #42210b;
+    --valdon-header-height: 4.5rem;
     --font-serif: 'Cormorant Garamond', 'Times New Roman', Times, serif;
+    --font-script: 'Great Vibes', 'Brush Script MT', cursive;
     --font-sans: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif;
+    --valdon-hero-gold: #c9a227;
+    --valdon-hero-gold-deep: #9a7b1a;
 }
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: clip;
+}
+
 body {
     margin: 0;
+    padding-top: var(--valdon-header-height);
     background: var(--valdon-bg);
     color: var(--valdon-text);
     font-family: var(--font-sans);
@@ -56,7 +68,7 @@ a {
 }
 
 .site-wrapper {
-    overflow-x: hidden;
+    width: 100%;
 }
 
 #first-nav-hero-about,
@@ -89,12 +101,18 @@ a {
     border: none;
 }
 
-.valdon-hero .valdon-header,
+.valdon-hero-wrapper > .valdon-header,
 .valdon-header--standalone {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 150;
     background: var(--valdon-bg-header);
     border-bottom: 1px solid var(--valdon-border);
     padding: 0.7rem 0;
+    box-shadow: 0 2px 12px rgba(66, 33, 11, 0.06);
 }
 
 .valdon-header-left {
@@ -115,6 +133,15 @@ a {
 .valdon-logo--header {
     width: 42px;
     height: 42px;
+    flex-shrink: 0;
+}
+
+.valdon-logo-img--header {
+    height: 52px;
+    width: auto;
+    max-width: min(200px, 48vw);
+    object-fit: contain;
+    display: block;
     flex-shrink: 0;
 }
 
@@ -165,8 +192,9 @@ a {
 }
 
 .valdon-btn-call .valdon-phone-icon {
-    width: 0.95rem;
-    height: 0.95rem;
+    width: 1.65rem;
+    height: 1.65rem;
+    color: #fff;
 }
 
 .valdon-phone-icon--sticky {
@@ -244,18 +272,23 @@ a {
 
 .valdon-nav a {
     font-family: var(--font-serif);
-    font-size: 0.92rem;
-    font-weight: 500;
-    text-transform: none;
-    letter-spacing: 0.02em;
-    color: var(--valdon-gold-light);
-    transition: color 0.2s;
+    font-size: clamp(0.72rem, 1.35vw, 0.88rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--valdon-nav-text);
+    transition: color 0.2s, opacity 0.2s;
     white-space: nowrap;
 }
 
-.valdon-nav a:hover,
+.valdon-nav a:hover {
+    color: var(--valdon-nav-text);
+    opacity: 0.72;
+}
+
 .valdon-nav a.active {
-    color: var(--valdon-text-muted);
+    color: var(--valdon-nav-text);
+    opacity: 1;
 }
 
 .valdon-nav a.active {
@@ -269,7 +302,7 @@ a {
     left: 0;
     right: 0;
     height: 1px;
-    background: var(--valdon-gold);
+    background: var(--valdon-nav-text);
 }
 
 .valdon-nav a.active::before {
@@ -284,24 +317,41 @@ a {
     font-family: var(--font-sans);
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--valdon-gold);
-    border-radius: 4px;
-    color: var(--valdon-gold-light);
-    font-size: 0.85rem;
-    text-transform: none;
-    letter-spacing: 0.02em;
-    background: var(--valdon-cream);
+    gap: 0.65rem;
+    padding: 0.5rem 1rem 0.5rem 0.85rem;
+    border: none;
+    border-radius: 14px;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 600;
+    line-height: 1.15;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    background: var(--valdon-call-green);
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(98, 118, 45, 0.35);
 }
 
 .valdon-btn-call:hover {
-    background: var(--valdon-gold);
-    color: var(--valdon-bg);
-    border-color: var(--valdon-gold);
+    background: var(--valdon-call-green-hover);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(98, 118, 45, 0.4);
+}
+
+.valdon-btn-call-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.12rem;
+    text-align: left;
+    white-space: normal;
+}
+
+.valdon-btn-call-line {
+    display: block;
 }
 
 .valdon-menu-toggle {
@@ -333,9 +383,16 @@ a {
 }
 
 .valdon-mobile-nav a {
-    font-size: 1.1rem;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    color: var(--valdon-nav-text);
+}
+
+.valdon-mobile-nav a:hover {
+    opacity: 0.75;
 }
 
 .valdon-mobile-close {
@@ -349,12 +406,28 @@ a {
     cursor: pointer;
 }
 
+.valdon-header-inner > .valdon-btn-call--mobile-icon {
+    display: none !important;
+}
+
 .valdon-btn-call--mobile-icon {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     padding: 0;
-    border-radius: 50%;
+    border-radius: 12px;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(98, 118, 45, 0.35);
+}
+
+.valdon-btn-call--mobile-icon .valdon-phone-icon {
+    width: 1.15rem;
+    height: 1.15rem;
+}
+
+.valdon-mobile-nav .valdon-btn-call {
+    margin-top: 0.5rem;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.72rem;
 }
 
 /* Hero — one unified section */
@@ -363,7 +436,39 @@ a {
     width: 100%;
     background: #ebe6dc;
     border-bottom: 1px solid var(--valdon-border);
-    overflow: hidden;
+    overflow: visible;
+}
+
+.valdon-hero-media {
+    position: relative;
+    width: 100%;
+}
+
+.valdon-hero-media::before,
+.valdon-hero-media::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+        180deg,
+        transparent 8%,
+        rgba(201, 162, 39, 0.85) 28%,
+        rgba(201, 162, 39, 0.85) 72%,
+        transparent 92%
+    );
+    transform: skewX(-18deg);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.valdon-hero-media::before {
+    left: 34%;
+}
+
+.valdon-hero-media::after {
+    right: 34%;
 }
 
 .valdon-hero-full-img {
@@ -377,9 +482,83 @@ a {
     vertical-align: top;
 }
 
+.valdon-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(0.75rem, 3vw, 2rem) 1rem 18%;
+    text-align: center;
+    pointer-events: none;
+}
+
+.valdon-hero-kicker {
+    margin: 0 0 0.15rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(0.95rem, 2.4vw, 1.35rem);
+    letter-spacing: 0.06em;
+    color: var(--valdon-nav-text);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.valdon-hero-display-title {
+    margin: 0;
+    font-family: var(--font-script);
+    font-weight: 400;
+    font-size: clamp(3rem, 11vw, 6.25rem);
+    line-height: 0.95;
+    color: var(--valdon-nav-text);
+    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.35);
+}
+
+.valdon-hero-footline {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(0.45rem, 2.2vw, 1rem);
+    z-index: 4;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0.4rem 1.35rem;
+    font-family: var(--font-serif);
+    font-size: clamp(0.72rem, 1.65vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--valdon-hero-gold-deep);
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(201, 162, 39, 0.45);
+    box-shadow: 0 2px 10px rgba(66, 33, 11, 0.08);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
 @media (max-width: 767px) {
     .valdon-hero-full-img {
         aspect-ratio: 2078 / 757;
+    }
+
+    .valdon-hero-media::before {
+        left: 18%;
+    }
+
+    .valdon-hero-media::after {
+        right: 18%;
+    }
+
+    .valdon-hero-overlay {
+        padding-bottom: 22%;
+    }
+
+    .valdon-hero-footline {
+        letter-spacing: 0.08em;
+        max-width: calc(100% - 1.5rem);
+        white-space: normal;
+        text-align: center;
     }
 }
 
@@ -1236,10 +1415,11 @@ a {
 }
 
 .valdon-footer-logo-img {
-    width: min(180px, 80%);
+    width: min(220px, 85%);
     height: auto;
     margin: 0 auto 0.75rem;
     display: block;
+    object-fit: contain;
 }
 
 .valdon-footer-brand .valdon-brand-name {
@@ -1331,9 +1511,9 @@ a {
     width: 58px;
     height: 58px;
     border-radius: 50%;
-    background: var(--valdon-bg-card);
-    border: 2px solid var(--valdon-gold);
-    color: var(--valdon-gold-light);
+    background: var(--valdon-call-green);
+    border: none;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1343,9 +1523,12 @@ a {
 
 .valdon-sticky-call:hover {
     transform: scale(1.06);
-    background: rgba(119, 97, 77, 0.12);
-    border-color: var(--valdon-gold-light);
-    color: var(--valdon-gold-light);
+    background: var(--valdon-call-green-hover);
+    color: #fff;
+}
+
+.valdon-sticky-call .valdon-phone-icon--sticky {
+    color: #fff;
 }
 
 .valdon-sticky-call::before {
@@ -1353,7 +1536,7 @@ a {
     position: absolute;
     inset: -5px;
     border-radius: 50%;
-    border: 2px solid var(--valdon-gold);
+    border: 2px solid var(--valdon-call-green);
     opacity: 0.6;
     animation: valdon-call-pulse 2s ease-out infinite;
 }
@@ -2486,6 +2669,7 @@ a {
 }
 
 .valdon-death-guide {
+    scroll-margin-top: 5rem;
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--valdon-border);
@@ -2502,6 +2686,53 @@ a {
 
 .valdon-death-guide .valdon-about-list {
     margin-bottom: 1.25rem;
+}
+
+.valdon-za-nas-gallery {
+    margin: 2.5rem auto;
+    max-width: 52rem;
+}
+
+.valdon-za-nas-gallery .valdon-about-subtitle--center {
+    margin-bottom: 1.35rem;
+}
+
+.valdon-za-nas-photos {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: grid;
+    gap: 0.85rem;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: stretch;
+}
+
+@media (min-width: 768px) {
+    .valdon-za-nas-photos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+.valdon-za-nas-photos li {
+    min-width: 0;
+}
+
+.valdon-za-nas-photos figure {
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    background: var(--valdon-cream);
+    border: 1px solid var(--valdon-border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.valdon-za-nas-photos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 .valdon-page-figure {
