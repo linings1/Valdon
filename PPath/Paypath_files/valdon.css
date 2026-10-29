@@ -447,7 +447,6 @@ a {
 .valdon-hero-media {
     position: relative;
     width: 100%;
-    overflow: hidden;
 }
 
 .valdon-hero-full-img {
@@ -459,8 +458,6 @@ a {
     object-fit: contain;
     object-position: center;
     vertical-align: top;
-    transform-origin: center center;
-    animation: valdonHeroPhotoDrift 18s ease-in-out infinite alternate;
 }
 
 .valdon-hero-overlay {
@@ -485,8 +482,6 @@ a {
     letter-spacing: 0.06em;
     color: var(--valdon-nav-text);
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
-    opacity: 0;
-    animation: valdonHeroTextRise 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards;
 }
 
 .valdon-hero-display-title {
@@ -497,8 +492,6 @@ a {
     line-height: 0.95;
     color: var(--valdon-nav-text);
     text-shadow: 0 2px 12px rgba(255, 255, 255, 0.35);
-    opacity: 0;
-    animation: valdonHeroTextRise 1.25s cubic-bezier(0.22, 1, 0.36, 1) 0.28s forwards;
 }
 
 .valdon-hero-footline {
@@ -506,6 +499,7 @@ a {
     left: 50%;
     bottom: clamp(0.45rem, 2.2vw, 1rem);
     z-index: 4;
+    transform: translateX(-50%);
     margin: 0;
     padding: 0.4rem 1.35rem;
     font-family: var(--font-serif);
@@ -519,54 +513,6 @@ a {
     box-shadow: 0 2px 10px rgba(66, 33, 11, 0.08);
     white-space: nowrap;
     pointer-events: none;
-    opacity: 0;
-    animation: valdonHeroFootRise 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
-}
-
-@keyframes valdonHeroPhotoDrift {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.035);
-    }
-}
-
-@keyframes valdonHeroTextRise {
-    from {
-        opacity: 0;
-        transform: translateY(0.85rem);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes valdonHeroFootRise {
-    from {
-        opacity: 0;
-        transform: translate(-50%, 0.85rem);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, 0);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .valdon-hero-full-img,
-    .valdon-hero-kicker,
-    .valdon-hero-display-title,
-    .valdon-hero-footline {
-        opacity: 1;
-        animation: none !important;
-        transform: none;
-    }
-
-    .valdon-hero-footline {
-        transform: translateX(-50%);
-    }
 }
 
 @media (max-width: 767px) {
