@@ -881,50 +881,58 @@ a {
     text-align: center;
     margin-bottom: 2rem;
     padding: 2rem 1.5rem;
-    background: var(--valdon-bg-card);
-    border: 1px solid var(--valdon-border);
+    background: #f2eadc;
+    border: 1px solid rgba(83, 71, 65, 0.28);
     border-radius: 6px;
 }
 
 .valdon-about-phone-label {
     font-size: 0.95rem;
-    color: var(--valdon-text-muted);
+    color: #534741;
+    margin: 0 0 0.35rem;
+}
+
+.valdon-about-phone-brand {
     margin: 0 0 0.65rem;
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #534741;
 }
 
 .valdon-about-phone-number {
     display: inline-block;
-    font-family: var(--font-serif);
-    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-family: var(--font-sans);
+    font-size: clamp(1.65rem, 4vw, 2.2rem);
     font-weight: 600;
-    color: var(--valdon-gold);
-    letter-spacing: 0.03em;
+    color: #534741;
+    letter-spacing: 0.04em;
     transition: color 0.2s;
 }
 
 .valdon-about-phone-number:hover {
-    color: var(--valdon-text-muted);
+    color: #3f342f;
 }
 
 .valdon-about-phone-note {
     font-size: 0.92rem;
-    color: var(--valdon-text-muted);
+    color: #534741;
     margin: 1rem 0 0;
     font-style: italic;
 }
 
 .valdon-about-notice {
-    border: 1px solid var(--valdon-gold);
+    border: 1px solid rgba(83, 71, 65, 0.35);
     border-radius: 6px;
     padding: 1.35rem 1.5rem;
-    background: rgba(119, 97, 77, 0.06);
+    background: #f2eadc;
 }
 
 .valdon-about-notice-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
     font-size: 1rem;
     font-weight: 700;
-    color: var(--valdon-gold);
+    color: #534741;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin: 0 0 0.65rem;
@@ -932,18 +940,18 @@ a {
 
 .valdon-about-notice p {
     font-size: 0.88rem;
-    color: var(--valdon-text-muted);
+    color: #534741;
     margin: 0;
     line-height: 1.7;
 }
 
 .valdon-about-notice a {
-    color: var(--valdon-gold);
-    font-weight: 600;
+    color: #534741;
+    font-weight: 700;
 }
 
 .valdon-about-notice a:hover {
-    color: var(--valdon-text-muted);
+    color: #3f342f;
 }
 
 @media (min-width: 768px) {
@@ -1230,18 +1238,37 @@ a {
     margin-bottom: 0.2rem;
 }
 
-/* Hotline (mobile prominent) */
+/* Hotline contact + Важно */
 .valdon-hotline {
-    display: none;
-    padding: 2rem 0;
+    display: block;
+    padding: 2.5rem 0;
+}
+
+.valdon-hotline .valdon-container {
+    display: grid;
+    gap: 1.25rem;
+    max-width: 48rem;
 }
 
 .valdon-hotline-box {
-    border: 1px solid var(--valdon-border);
+    border: 1px solid rgba(83, 71, 65, 0.28);
     border-radius: 6px;
-    padding: 2rem;
+    padding: 2rem 1.5rem;
     text-align: center;
-    background: var(--valdon-bg-card);
+    background: #f2eadc;
+    color: #534741;
+}
+
+.valdon-hotline-box .valdon-about-phone-label,
+.valdon-hotline-box .valdon-hotline-brand,
+.valdon-hotline-box .valdon-about-phone-note,
+.valdon-hotline-box a,
+.valdon-hotline-box span {
+    color: #534741;
+}
+
+.valdon-hotline .valdon-about-notice {
+    margin: 0;
 }
 
 .valdon-emoji {
@@ -1300,16 +1327,18 @@ a {
 }
 
 .valdon-hotline-box a {
-    font-size: 1.4rem;
-    color: var(--valdon-gold);
+    font-family: var(--font-sans);
+    font-size: 1.55rem;
+    color: #534741;
     font-weight: 600;
+    letter-spacing: 0.04em;
 }
 
 .valdon-hotline-box span {
     display: block;
     margin-top: 0.35rem;
     font-size: 0.82rem;
-    color: var(--valdon-text-muted);
+    color: #534741;
 }
 
 /* Footer */
@@ -3196,10 +3225,10 @@ a {
 
 .valdon-hotline-brand {
     margin: 0 0 0.35rem;
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--valdon-text-dark);
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #534741;
 }
 
 .valdon-phone-icon--lg {
@@ -3322,8 +3351,8 @@ a {
 
 .valdon-about-phone-number {
     font-family: var(--font-sans);
-    letter-spacing: 0.02em;
-    color: var(--valdon-nav-text);
+    letter-spacing: 0.04em;
+    color: #534741;
 }
 
 .valdon-about-prose,
